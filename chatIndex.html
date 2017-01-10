@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>Geek-Chat MODULE</title>
+<link rel="stylesheet" href="style.css" type="text/css"/>
+</head>
+
+<body>
+<div id="wrapper">
+	<div id="menu">
+		<p class='welcome'> <b> Welcome </b></p>
+		<p class="logout"> <a id="exit" href='#'>Exit Chat</a></p>
+	</div>
+	<br>
+	<br>
+	<ul id="chatbox" ></ul>
+	<form name="message" action="" method="GET"  >
+		Type :<input name="usermsg" type="text" id="usermsg"  />
+        <input name="submitmsg" type="submit"  id="submitmsg" value="Send" />
+	</form>
+</div>
+<script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io();
+  //alert("here")
+  $('form').submit(function(){
+    socket.emit('chat message', $('#usermsg').val());
+    $('#usermsg').val('');
+    return false;
+  });
+  
+  socket.on('chat message',function(msg){
+  $('#chatbox').append($('<li>').text(msg));
+//  alert('Hi')
+  })
+	
+</script>
+</body>
+</html>	

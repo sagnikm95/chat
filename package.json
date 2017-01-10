@@ -1,0 +1,14 @@
+{
+  "name": "firstchat",
+  "version": "1.0.0",
+  "description": "chat client using node.js and javascript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sagnik",
+  "license": "ISC",
+  "dependencies": {
+    "socket.io": "^1.7.2"
+  }
+}
